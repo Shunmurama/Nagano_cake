@@ -1,0 +1,52 @@
+<h1>マイページ</h1>
+
+<div class="field">
+ <div class="container">
+  <h1>マイページ</h1>
+
+  <div class="col-sm-1">
+   登録情報
+  </div>
+  　<div class="actions">
+     <div class: "btn btn-success" >
+     編集する
+     </div>
+    </div>
+
+    <% @customers.each do |customer| %>
+
+    <table class="table">
+      <tbody>
+
+        <tr>
+          <th scope="row">氏名</th>
+          <td><%= customer.last_name %> <%=customer.first_name %> </td>
+        </tr>
+        <tr>
+          <th scope="row">カナ</th>
+          <td><%= customer.last_name_kana %> <%=customer.first_name_kana %> </td>
+        </tr>
+        <tr>
+          <th scope="row">郵便番号</th>
+          <td><%= customer.postal_code %> <%=customer.postal_code %> </td>
+        </tr>
+        <tr>
+          <th scope="row">住所</th>
+          <td><%= customer.address %> <%=customer.address %> </td>
+        </tr>
+        <tr>
+          <th scope="row">電話番号</th>
+          <td><%= customer.telephone_number %> <%=customer.telephone_number %> </td>
+        </tr>
+        <tr>
+          <th scope="row">メールアドレス</th>
+          <td><%= customer.email %> <%=customer.email %> </td>
+        </tr>
+
+      </tbody>
+    </table>
+    
+    <% end %>
+
+ </div>
+<div>

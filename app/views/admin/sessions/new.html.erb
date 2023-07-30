@@ -2,36 +2,20 @@
 
 <h2>管理者ログイン</h2>
 
-<%= form_with(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: admin_session_path do |f| %>
   <table>
     <tr>
-      <th><%= f.label :email %></th>
+      <th><%= f.label :メールアドレス %></th>
       <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
     </tr>
     <tr>
-      <th><%= f.label :password %></th>
-      <th><%= f.password_field :password, autocomplete: "current-password" %></th>
+      <th><%= f.label :パスワード %></th>
+      <th><%= f.password_field :encrypted_password, autocomplete: "current-encrypted_password" %></th>
     </tr>
   </table>
   <%#　レイアウト途中、ボタン変更済み、テーブルで設定すれば、
       ワイヤーフレーム通りになると思って記述している。 %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
 
   <div class="actions">
     <%= f.submit "ログイン", class: "btn btn-primary" %>

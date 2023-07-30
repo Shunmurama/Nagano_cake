@@ -1,10 +1,26 @@
 Rails.application.routes.draw do
+
+    get 'customers/mypage' => "customers#show"
+    get 'customers/information/edit' => "customers#edit"
+    patch 'customers/information' => "customers#update"
+    get 'customers/information/withdraw' => "customers#withdraw"
+    patch 'customers/information' => "customers#unsubscribe"
+
   root to: 'homes#top'
   get '/homes/about' => "homes#about", as: "about"
 
+namespace :admin do
+  resources :items
+  resources :genres
+end
+
+
+
+
+
   # 顧客用
   # URL /customers/sign_in ...
-  devise_for :customers, skip: [:passwords], controllers: {
+  devise_for :customers, skip: [:encrypted_password], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }

@@ -1,9 +1,8 @@
-<h2>新規会員登録</h2>
+<h1>会員登録情報</h1>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
+ <div class="field">
    <div class="container">
     <div class="row">
      <div class="col-sm-3">
@@ -83,35 +82,11 @@
      </div>
     </div>
 
-    <div class="row">
-     <div class="col">
-      パスワード（６文字以上）
-     </div>
-     <div class="col">
-      <%= f.password_field :encrypted_password %>
-     </div>
-     <div class="col">
-     </div>
-    </div>
-
-    <div class="row">
-     <div class="col">
-      パスワード（確認用）
-     </div>
-     <div class="col">
-       <%= f.password_field :encrypted_password_confirmation %>
-     </div>
-     <div class="col">
-     </div>
-    </div>
-
-    <div class="actions">
-    <%= f.submit "新規登録", class: "btn btn-success" %>
-    </div>
-
    </div>
   <div/>
+  <% end %>
 
-<% end %>
+    <div class="actions">
+    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+    </div>
 
-<%= render "public/shared/links" %>
