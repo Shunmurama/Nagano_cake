@@ -2,7 +2,7 @@
 
 <h2>管理者ログイン</h2>
 
-<%= form_with model: @customer, url: admin_session_path do |f| %>
+<%= form_with model: @admin, url: admin_session_path do |f| %>
   <table>
     <tr>
       <th><%= f.label :メールアドレス %></th>
@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th><%= f.label :パスワード %></th>
-      <th><%= f.password_field :encrypted_password, autocomplete: "current-encrypted_password" %></th>
+      <th><%= f.password_field :password, autocomplete: "current-password" %></th>
     </tr>
   </table>
   <%#　レイアウト途中、ボタン変更済み、テーブルで設定すれば、

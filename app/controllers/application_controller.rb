@@ -2,21 +2,31 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  private
    def after_sign_in_path_for(resource)
-    public_customers_mypage_path(@customer.id)
+    if resource ==:admin
+       about_path
+    else
+       root_path
+    end
    end
 
    def after_sign_out_path_for(resource)
-    customer_session_path
+    if resource ==:admin
+       admin_session_path
+    else
+       customer_session_path
+    end
    end
+
 
   protected
    def configure_permitted_parameters
 
     # サインアップ時にnameのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number,])
 
     # アカウント編集の時にnameとprofileのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number,])
    end
 end

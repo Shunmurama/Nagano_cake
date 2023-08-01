@@ -37,12 +37,12 @@ class Public::SessionsController < Devise::SessionsController
          if true
           redirect_to public_customer_sign_up_path
          else
-          render :create 
-         end 
-       end 
+          render :create
+         end
+       end
     end
-    
-  
-  
+
+
+
   end
-end 
+end
