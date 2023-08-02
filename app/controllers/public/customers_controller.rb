@@ -1,9 +1,8 @@
 class Public::CustomersController < ApplicationController
-  
-  
+
+
   def show
-    @customer_new = Customer.new(customer_params)
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customers = Customer.all
   end
 
@@ -17,7 +16,7 @@ class Public::CustomersController < ApplicationController
      redirect_to home_path
    else
      render :edit
-   end 
+   end
   end
 
   def withdraw

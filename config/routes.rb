@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-
+scope module: :public do
     get 'customers/mypage' => "customers#show"
     get 'customers/information/edit' => "customers#edit"
     patch 'customers/information' => "customers#update"
     get 'customers/information/withdraw' => "customers#withdraw"
     patch 'customers/information' => "customers#unsubscribe"
 
-  root to: 'homes#top'
-  get '/homes/about' => "homes#about", as: "about"
+
+end
+
+ root to: 'homes#top'
+    get '/homes/about' => "homes#about", as: "about"
 
 namespace :admin do
   resources :items
-  resources :genres
+  resources :genres, only: [:index,:create,:edit,:update ]
 end
 
 
