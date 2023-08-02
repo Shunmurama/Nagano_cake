@@ -1,8 +1,8 @@
 <div class="field">
    <div class="container">
-    <h2>商品新規登録</h2>
+    <h2>商品編集</h2>
 
-<%= form_with model: @item, url: admin_items_path do |f| %>
+<%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
 
       <div class="row">
        <div class="col-sm-3">

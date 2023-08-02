@@ -6,6 +6,8 @@ scope module: :public do
     get 'customers/information/withdraw' => "customers#withdraw"
     patch 'customers/information' => "customers#unsubscribe"
 
+    resources :items
+
 
 end
 

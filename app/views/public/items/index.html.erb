@@ -1,0 +1,15 @@
+<div class="field">
+ <div class="container">
+
+   <h2>商品一覧</h2>
+   <% @items.each do |item| %>
+   <div class="d-flex align-items-stretch">
+     <%= image_tag item.get_image(100,100) %>
+   </div>
+   <div><%= item.name %></div>
+   <div>¥<%= item.price %></div>
+   <% end %>
+
+   <%= paginate @items %>
+　</div>
+</div>
