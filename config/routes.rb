@@ -7,6 +7,7 @@ scope module: :public do
     patch 'customers/information' => "customers#unsubscribe"
 
     resources :items
+    resources :cart_items
 
 
 end
@@ -17,6 +18,7 @@ end
 namespace :admin do
   resources :items
   resources :genres, only: [:index,:create,:edit,:update ]
+  resources :customers
 end
 
 

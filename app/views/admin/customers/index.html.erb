@@ -1,0 +1,30 @@
+<div class="field">
+ <div class="container">
+
+   <div class="bg-secondary text-black">会員一覧</div>
+
+    <table class='table table-hover table-inverse'>
+          <thead class="bg-secondary text-black">
+            <tr>
+              <th>会員ID</th>
+              <th>氏名</th>
+              <th>メールアドレス</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+           <% @customers.each do |customer|%>
+            <tr>
+             <td><%= customer.id %></td>
+             <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+             <td><%= customer.email %></td>
+            </tr>
+           <% end %>
+          </tbody>
+    </table>
+
+    <%= paginate @customers %>
+
+  </div>
+</div>

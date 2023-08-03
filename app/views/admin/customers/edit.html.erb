@@ -1,0 +1,86 @@
+<div class="field">
+   <div class="container">
+      <div class="bg-secondary text-black"><%= @customer.full_name %>さんの会員情報編集</div>
+
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
+
+    <div class="row">
+     <div class="col-sm-3">
+      会員ID
+     </div>
+     <div class="col-sm-3">
+      <%= @customer.id %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-3">
+      氏名
+     </div>
+     <div class="col-sm-3">
+      <%= f.text_field :last_name %>
+     </div>
+     <div class="col-sm-5">
+      <%= f.text_field :first_name %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-3">
+      フリガナ
+     </div>
+     <div class="col-sm-3">
+      <%= f.text_field :last_name_kana %>
+     </div>
+     <div class="col-sm-5">
+      <%= f.text_field :first_name_kana %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-3">
+      郵便番号
+     </div>
+     <div class="col-sm-3">
+      <%= f.text_field :postal_code %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-3">
+      住所
+     </div>
+     <div class="col-sm-8">
+      <%= f.text_area :address %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-3">
+      電話番号（ハイフンなし）
+     </div>
+     <div class="col-sm-3">
+      <%= f.text_field :telephone_number %>
+     </div>
+    </div>
+
+     <div class="row">
+      <div class="col-sm-3">
+       メールアドレス
+      </div>
+      <div class="col-sm-3">
+       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+
+
+    <div class="actions">
+    <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+
+    <% end %>
+
+  </div>
+ </div>
+

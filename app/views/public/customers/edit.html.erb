@@ -1,6 +1,6 @@
 <h1>会員登録情報</h1>
 
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 
  <div class="field">
    <div class="container">
@@ -47,8 +47,6 @@
      <div class="col">
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
      </div>
-     <div class="col">
-     </div>
     </div>
 
     <div class="row">
@@ -57,8 +55,6 @@
      </div>
      <div class="col">
       <%= f.text_field :postal_code %>
-     </div>
-     <div class="col">
      </div>
     </div>
 
@@ -78,15 +74,16 @@
      <div class="col">
       <%= f.text_field :telephone_number %>
      </div>
-     <div class="col">
-     </div>
     </div>
 
-   </div>
-  <div/>
-  <% end %>
+
 
     <div class="actions">
     <%= f.submit "編集内容を保存", class: "btn btn-success" %>
     </div>
+
+    <% end %>
+
+  </div>
+ </div>
 

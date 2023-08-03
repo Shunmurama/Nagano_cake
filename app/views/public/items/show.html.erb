@@ -1,0 +1,32 @@
+<div class="field">
+  <div class="container">
+
+    <div class="img-thumbnail">
+     <%= image_tag @item.get_image(auto,auto) %>
+    </div>
+
+    <div class="row">
+     <h4 class="col-sm-7">
+      <%= @item.name %>
+     </h4>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-7">
+      <%= @item.introduction %>
+     </div>
+    </div>
+
+    <div class="row">
+     <div class="col-sm-7">
+      <%= @item.price*1.1 %>（税込）
+     </div>
+    </div>
+
+    <div>個数</div>
+    <div>カートに入れる</div>
+
+
+
+  </div>
+</div>
