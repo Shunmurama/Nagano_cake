@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="img-thumbnail">
-     <%= image_tag @item.get_image(auto,auto) %>
+     <%= image_tag @item.get_image(300,300) %>
     </div>
 
     <div class="row">
@@ -19,14 +19,18 @@
 
     <div class="row">
      <div class="col-sm-7">
-      <%= @item.price*1.1 %>（税込）
+      <%= (@item.price*1.1).floor %>（税込）
      </div>
     </div>
 
-    <div>個数</div>
-    <div>カートに入れる</div>
-
-
+    <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+    <div><%= f.label :quantity, "個数選択" %>
+         <%= f.select :amount, *[1..10] %>
+    </div>
+    <div><%= f.hidden_field :item_id, :value => @item.id %>
+         <%= f.submit 'カートに入れる' ,class: "btn btn-success" %>
+    </div>
+    <% end %>
 
   </div>
 </div>

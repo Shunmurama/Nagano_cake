@@ -4,10 +4,13 @@
    <h2>商品一覧</h2>
    <% @items.each do |item| %>
    <div class="d-flex align-items-stretch">
-     <%= image_tag item.get_image(100,100) %>
+    <%= link_to item_path(item.id) do %>
+     <%= image_tag item.get_image(200,200) %>
+    <% end %>
    </div>
    <div><%= item.name %></div>
    <div>¥<%= item.price %></div>
+
    <% end %>
 
    <%= paginate @items %>

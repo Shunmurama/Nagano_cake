@@ -3,7 +3,7 @@
     <div class="bg-secondary text-black">商品詳細</div>
 
     <div class="img-thumbnail">
-     <%= image_tag @item.get_image(auto,auto) %>
+     <%= image_tag @item.get_image(100,100) %>
     </div>
 
     <div class="row">
@@ -39,12 +39,12 @@
       （税抜価格）
      </div>
      <div class="col">
-      <%= @item.price*1.1 %>(<%= @item.price %>)円
+      <%= (@item.price*@tax).floor %>(<%= @item.price %>)円
      </div>
     </div>
 
      <div class="form-group">
-      <%= f.submit '変更を保存', class: "btn btn-success" %>
+      <%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-success" %>
      </div>
 
 
