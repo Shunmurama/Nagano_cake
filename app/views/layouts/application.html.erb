@@ -22,20 +22,21 @@
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
          <% if customer_signed_in? %>
-          <li>
-            <%= link_to about_path, class: "nav-link text-light" do %>
-            <i class="fas fa-home"></i>About
-            <% end %>
-          </li>
           <li>
             <%= link_to customers_mypage_path, class: "nav-link text-light" do %>
             <i class="fas fa-users"></i>マイページ
             <% end %>
           </li>
-       <%#   <li>
-            <%= link_to books_path, class: "nav-link text-light" do %
-            <i class="fas fa-book-open"></i>Books
+          <li>
+            <%= link_to items_path, class: "nav-link text-light" do %>
+            <i class="fas fa-book-open"></i>商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to cart_items_path, class: "nav-link text-light" do %>
+            <i class="fas fa-sign-out-alt"></i>カート
             <% end %>
           </li>
           <li>
@@ -44,34 +45,42 @@
             <% end %>
           </li>
 
-
-          <% elsif admin_signed_in? %>
-
-
+         <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to items_path, class: "nav-link text-light" do %>
+            <i class="fas fa-book-open"></i>商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_customers_path, class: "nav-link text-light" do %>
+            <i class="fas fa-book-open"></i>会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to items_path, class: "nav-link text-light" do %>
+            <i class="fas fa-book-open"></i>商品一覧
+            <% end %>
+          </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
             <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>
           </li>
 
-
-
-
-            <% else %>
-<%#
+         <% else %>
           <li>
-            <%= link_to root_path, class: "nav-link text-light" do %
-              <i class="fas fa-home"></i> Home
-            <% end %
+            <%= link_to about_path, class: "nav-link text-light" do %>
+            <i class="fas fa-home"></i>About
+            <% end %>
           </li>
           <li>
-            <%= link_to about_path, class: "nav-link text-light" do %
-              <i class="fas fa-link"></i> About
-            <% end %
+            <%= link_to items_path, class: "nav-link text-light" do %>
+              <i class="fas fa-link"></i>商品一覧
+            <% end %>
           </li>
           <li>
-            <%= link_to new_user_registration_path, class: "nav-link text-light" do %
-              <i class="fas fa-user-plus"></i> Sign up
+            <%= link_to new_customer_registration_path, class: "nav-link text-light" do %>
+              <i class="fas fa-user-plus"></i> 新規登録
             <% end %>
           </li>
           <li>

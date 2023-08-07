@@ -7,7 +7,11 @@ scope module: :public do
     patch 'customers/information' => "customers#unsubscribe"
 
     resources :items
-    resources :cart_items
+    resources :cart_items do
+      collection do
+        delete "destroy_all"
+      end
+    end
 
 
 end
