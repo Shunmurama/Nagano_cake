@@ -12,9 +12,7 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
-  def subtotal
-    with_tax_price * amount
-  end
+
 
   def get_image(width, height)
     unless image.attached?

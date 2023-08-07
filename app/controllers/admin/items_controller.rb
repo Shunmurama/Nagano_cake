@@ -11,8 +11,9 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
        redirect_to admin_items_path
-    end
+    else
        render :new
+    end
   end
 
   def show
