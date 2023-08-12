@@ -1,0 +1,51 @@
+<h2>注文情報確認</h2>
+<div class="field">
+ <div class="container">
+
+    <table class='table table-hover table-inverse'>
+      <thead class="bg-secondary text-black">
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th colspan="4"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+       <% @order_items.each do |order_item|%>
+        <tr>
+         <td><%= order_item.item.name %></td>
+         <td><%= (order_item.item.price*@tax).floor %></td>
+         <td><%= order_item.amount %></td>
+         <td><%= order_item.item.subtotal %></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+
+    <div class="row">
+      支払方法
+      <div class="col-sm-5">
+            <%= @order.how_to_pay %>
+      </div>
+    </div>
+
+    <div class="row">
+      お届け先
+      <div class="col-sm-5">
+        <% if customer_signed_in? %>
+          <% @customers.each do |customer| %>
+            <%= customer.postal_code %> <%= customer.address %> <%= customer.full_name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+ </div>
+</div>
+

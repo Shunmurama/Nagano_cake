@@ -1,14 +1,15 @@
-<div class="field">
  <div class="container">
 
-   <div class="bg-secondary text-black">会員一覧</div>
+  <div class="col d-inline h2 bg-secondary text-black center-block">会員一覧</div>
 
-    <table class='table table-hover table-inverse'>
+   <div class="text-center">
+
+    <table class='d-inline table'>
           <thead class="bg-secondary text-black">
             <tr>
-              <th>会員ID</th>
-              <th>氏名</th>
-              <th>メールアドレス</th>
+              <th class="w-auto">会員ID</th>
+              <th class="w-auto">氏名</th>
+              <th class="w-auto">メールアドレス</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -16,15 +17,16 @@
           <tbody>
            <% @customers.each do |customer|%>
             <tr>
-             <td><%= customer.id %></td>
-             <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
-             <td><%= customer.email %></td>
+             <td scope="w-auto"><%= customer.id %></td>
+             <td scope="w-auto"><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+             <td scope="w-auto"><%= customer.email %></td>
             </tr>
            <% end %>
           </tbody>
     </table>
 
+   </div>
+
     <%= paginate @customers %>
 
-  </div>
 </div>

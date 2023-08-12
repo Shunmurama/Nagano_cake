@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2023_07_28_074854) do
     t.string "name", null: false
     t.integer "delivery_charge", null: false
     t.integer "amount", null: false
-    t.integer "how_to_pay", null: false
+    t.integer "how_to_pay", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"

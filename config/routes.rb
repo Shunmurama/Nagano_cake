@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 scope module: :public do
     get 'customers/mypage' => "customers#show"
     get 'customers/information/edit' => "customers#edit"
@@ -7,6 +8,14 @@ scope module: :public do
     patch 'customers/information' => "customers#unsubscribe"
 
     resources :items
+    
+    get 'orders/new' => "orders#new"
+    get 'orders/confirm' => "orders#confirm"
+    get 'orders/thanks' => "orders#thanks"
+    get 'orders' => "orders#index"
+    post 'orders' => "orders#create"
+    get 'orders/:id' => "orders#show"
+
     resources :cart_items do
       collection do
         delete "destroy_all"
@@ -23,6 +32,7 @@ namespace :admin do
   resources :items
   resources :genres, only: [:index,:create,:edit,:update ]
   resources :customers
+  resources :orders
 end
 
 

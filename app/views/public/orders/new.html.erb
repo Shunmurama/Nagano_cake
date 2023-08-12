@@ -1,0 +1,35 @@
+<div class="field">
+  <div class="container">
+    <div class="bg-secondary text-black">商品一覧</div>
+      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+      <div class="row">
+        支払方法
+       <div class="col-sm-4">
+        <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(0) %>
+        <%= f.label :how_to_pay_method_credit_card, Order.how_to_pay_methods_i18n[:credit_card] %>
+        <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(1) %>
+        <%= f.label :how_to_pay_method_transfer, Order.how_to_pay_methods_i18n[:transfer] %>
+       </div>
+      </div>
+
+
+
+    <div class="row">
+      お届け先
+      <div class="col-sm-5">
+        <% if customer_signed_in? %>
+          <% @customers.each do |customer| %>
+            <%= customer.postal_code %> <%= customer.address %> <%= customer.full_name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.hidden_field :customer_id, :value => @customer.id %>
+        <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
+    </div>
+       <% end %>
+
+  </div>
+</div>
