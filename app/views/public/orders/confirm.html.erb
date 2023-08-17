@@ -14,12 +14,12 @@
       </thead>
 
       <tbody>
-       <% @order_items.each do |order_item|%>
+       <% @order_items.each do |order_item| %>
         <tr>
          <td><%= order_item.item.name %></td>
          <td><%= (order_item.item.price*@tax).floor %></td>
          <td><%= order_item.amount %></td>
-         <td><%= order_item.item.subtotal %></td>
+         <td><%= order_item.item.purchase_price %></td>
         </tr>
        <% end %>
       </tbody>
@@ -28,7 +28,7 @@
     <div class="row">
       支払方法
       <div class="col-sm-5">
-            <%= @order.how_to_pay %>
+            <%= @order.how_to_pay_method %>
       </div>
     </div>
 
@@ -42,7 +42,6 @@
         <% end %>
       </div>
     </div>
-
 
 
 

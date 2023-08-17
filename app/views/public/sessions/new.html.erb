@@ -3,32 +3,33 @@
   <div class="col-sm-3 mt-4 ml-4 text-center bg-secondary bg-gradient">会員の方はこちらからログイン</div>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <div class="row mt-3">
-    <div class="ml-5">
+    <div class="ml-5 col-sm-2">
     <%= f.label :メールアドレス %>
     </div>
-    <div class="ml-2">
+    <div class="ml-2 col">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
   <div class="row mt-3">
-    <div class="ml-5">
+    <div class="ml-5 col-sm-2">
     <%= f.label :パスワード %>
     </div>
-    <div class="ml-2">
+    <div class="ml-sm-4">
     <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "　　ログイン　　", class: "btn btn-primary w-20" %>
+
+  <div class="text-center mt-4">
+    <%= f.submit "ログイン", class: "btn btn-primary w-20" %>
   </div>
 <% end %>
 
 
  <div class="col-sm-3 mt-4 ml-3 text-center bg-secondary bg-gradient">会員登録がお済みでない方</div>
 
-<div class="row mt-3 ml-10">
+<div class="row mt-3">
  <div><%= render "public/shared/links" %></div>
  <div>から新規登録を行ってください</div>
 </div>

@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
     @total = 0
+    @order = Order
   end
 
   def create
@@ -12,7 +13,7 @@ class Public::CartItemsController < ApplicationController
        cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
        cart_item.amount += params[:cart_item][:amount].to_i
        cart_item.save
-       redirect_to orders_new_path
+       redirect_to cart_items_path
     elsif @cart_item.save
           @cart_items = current_customer.cart_items.all
           render :index

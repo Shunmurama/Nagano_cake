@@ -8,9 +8,9 @@ scope module: :public do
     patch 'customers/information' => "customers#unsubscribe"
 
     resources :items
-    
+
     get 'orders/new' => "orders#new"
-    get 'orders/confirm' => "orders#confirm"
+    post 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
     get 'orders' => "orders#index"
     post 'orders' => "orders#create"

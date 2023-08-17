@@ -1,7 +1,7 @@
 <div class="field">
   <div class="container">
     <div class="bg-secondary text-black">商品一覧</div>
-      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+      <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
       <div class="row">
         支払方法
        <div class="col-sm-4">
