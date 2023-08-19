@@ -23,7 +23,7 @@
              <%= order.name %><br>
          </td>
          <td><% order.order_items.each do |order_item| %>
-             <%= order_item.item.name %>
+             <%= order_item.item.name %><br>
              <% end %>
          </td>
          <td><%= order.total_payment %>円</td>

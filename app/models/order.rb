@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   enum how_to_pay_method: { credit_card: 0, transfer: 1 }
 
   def total
-    @total_price = (@total + cart_item.item.price*@tax).floor
+    @total_price = (@total + cart_item.item.price*@tax).floor(:delimited)
   end
 
   def full_name

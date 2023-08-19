@@ -1,2 +1,75 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+    <div class="mt-4 ml-4 table-secondary col-sm-2 text-center"><h4>注文履歴詳細</h4></div>
+  <div class="row mt-5">
+   <div class="col">
+    <h5>注文情報</h5>
+      <table class="table table-bordered">
+         <tbody>
+          <tr>
+           <td class="table-secondary">注文日</td>
+           <td><%= @order.created_at %></td>
+          </tr>
+          <tr>
+           <td class="table-secondary">配送先</td>
+           <td><%= @order.postal_code %><br>
+               <%= @order.address %><br>
+               <%= @order.name %>
+           </td>
+          </tr>
+          <tr>
+           <td class="table-secondary">支払方法</td>
+           <td><%= @order.how_to_pay_method_i18n %></td>
+          </tr>
+         </tbody>
+      </table>
+   </div>
+
+   <div class="col table ml-4">
+    <h5>請求情報</h5>
+     <table class="table table-bordered">
+       <tbody>
+         <tr>
+           <td class="table-secondary">商品合計</td>
+           <td><%= @order.total_payment %></td>
+          </tr>
+         <tr>
+           <td class="table-secondary">配送料</td>
+           <td><%= @order.delivery_charge %></td>
+          </tr>
+         <tr>
+           <td class="table-secondary">ご請求額</td>
+           <td><%= @order.total_payment %></td>
+          </tr>
+       </tbody>
+     </table>
+   </div>
+  </div>
+
+  <div class="col">
+   <h5>注文情報</h5>
+    <table class='table table-hover table-inverse'>
+      <thead class="table-secondary">
+        <tr>
+          <th>商品</th>
+          <th>単価（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+
+      <% @orders.each do |order| %>
+       <% order.order_items.each do |order_item| %>
+        <tbody>
+         <tr>
+          <td><%= order_item.item.name %></td>
+          <td><%= (order_item.item.price*1.1).floor %></td>
+          <td><%= order_item.amount %></td>
+          <td><%= (order_item.item.price*1.1).floor*(order_item.purchase_price) %></td>
+         </tr>
+        </tbody>
+       <% end %>
+      <% end %>
+     </table>
+  </div>
+
+</div>
