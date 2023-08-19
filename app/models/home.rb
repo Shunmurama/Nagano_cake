@@ -1,2 +1,3 @@
 class Home < ApplicationRecord
+
 end

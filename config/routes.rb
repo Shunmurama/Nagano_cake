@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 scope module: :public do
     get 'customers/mypage' => "customers#show"
     get 'customers/information/edit' => "customers#edit"
@@ -33,6 +34,7 @@ namespace :admin do
   resources :genres, only: [:index,:create,:edit,:update ]
   resources :customers
   resources :orders
+  get '/' => "homes#top"
 end
 
 
