@@ -50,7 +50,7 @@
           <div class="active border">合計金額</div>
           <div class="border">
                <% @cart_items.each do |cart_item| %>
-               <% @total = @total + cart_item.subtotal %>
+               <% @total = (@total + cart_item.subtotal) %>
                <% end %>
                <%= @total %>
           </div>

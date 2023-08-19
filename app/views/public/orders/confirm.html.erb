@@ -1,9 +1,11 @@
 <h2>注文情報確認</h2>
-<div class="field">
- <div class="container">
 
+ <div class="container">
+  <div class="row">
+
+   <div class="col">
     <table class='table table-hover table-inverse'>
-      <thead class="bg-secondary text-black">
+      <thead class="table-secondary">
         <tr>
           <th>商品名</th>
           <th>単価（税込）</th>
@@ -13,27 +15,51 @@
         </tr>
       </thead>
 
-      <tbody>
-       <% @order_items.each do |order_item| %>
+
+      <% @cart_items.each do |cart_item| %>
+       <tbody>
         <tr>
-         <td><%= order_item.item.name %></td>
-         <td><%= (order_item.item.price*@tax).floor %></td>
-         <td><%= order_item.amount %></td>
-         <td><%= order_item.item.purchase_price %></td>
+         <td><%= cart_item.item.name %></td>
+         <td><%= (cart_item.item.price*@tax).floor %></td>
+         <td><%= cart_item.amount %></td>
+         <td><%= cart_item.subtotal %></td>
         </tr>
-       <% end %>
-      </tbody>
+       </tbody>
+      <% end %>
     </table>
+   </div>
+
+   <div class="col table ml-4">
+     <table>
+       <tbody>
+         <tr>
+           <td>送料</td>
+           <td><%= @order.delivery_charge %></td>
+         </tr>
+         <tr>
+           <td>商品合計</td>
+           <td><%= @total %>
+           </td>
+         </tr>
+         <tr>
+           <td>請求金額</td>
+           <td><%= @order.delivery_charge + @total %></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+
+  </div>
 
     <div class="row">
-      支払方法
+      <h4>支払方法</h4>
       <div class="col-sm-5">
-            <%= @order.how_to_pay_method %>
+            <%= @order.how_to_pay_method_i18n %>
       </div>
     </div>
 
     <div class="row">
-      お届け先
+      <h4>お届け先</h4>
       <div class="col-sm-5">
         <% if customer_signed_in? %>
           <% @customers.each do |customer| %>
@@ -43,8 +69,19 @@
       </div>
     </div>
 
+    <div class="text-center">
+      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+       <%= f.hidden_field :customer_id %>
+       <%= f.hidden_field :address %>
+       <%= f.hidden_field :postal_code %>
+       <%= f.hidden_field :name %>
+       <%= f.hidden_field :delivery_charge %>
+       <%= f.hidden_field :total_payment %>
+       <%= f.hidden_field :how_to_pay %>
+       <%= f.submit '注文を確定する' ,class: "btn btn-success" %>
+      <% end %>
+    </div>
 
 
- </div>
 </div>
 
