@@ -2,7 +2,7 @@
   <div class="row mb-2">
     <div class="mt-3 text-center active"><h4>注文履歴一覧</h4></div>
 
-    <table class='table table-hover table-inverse'>
+    <table class="table table-bordered">
       <thead class="table-secondary">
         <tr>
           <th>注文日時</th>
@@ -16,9 +16,9 @@
       <% @orders.each do |order| %>
        <tbody>
         <tr>
-         <td><%= order.created_at %></td>
+         <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
          <td>
-             <%= order.postal_code %><br>
+             〒<%= order.postal_code %><br>
              <%= order.address %><br>
              <%= order.name %><br>
          </td>
@@ -26,8 +26,8 @@
              <%= order_item.item.name %><br>
              <% end %>
          </td>
-         <td><%= order.total_payment %>円</td>
-         <td><%= link_to "表示する", orders_path(order.id), class: "btn btn-success" %></td>
+         <td><%= order.total_payment.to_s(:delimited) %>円</td>
+         <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
         </tr>
        </tbody>
       <% end %>

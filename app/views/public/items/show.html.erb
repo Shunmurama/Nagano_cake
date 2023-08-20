@@ -21,7 +21,7 @@
 
     <div class="row">
      <div class="col-sm-7">
-      <%= (@item.price*1.1).floor %>（税込）
+      <%= (@item.price*1.1).floor.to_s(:delimited) %>（税込）
      </div>
     </div>
 

@@ -5,7 +5,7 @@ class CartItem < ApplicationRecord
   has_one_attached :image
 
     def subtotal
-      item.with_tax_price * amount(:delimited)
+      item.with_tax_price * amount
     end
 
   def @item.get_image(width, height)

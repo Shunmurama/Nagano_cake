@@ -15,7 +15,7 @@ scope module: :public do
     get 'orders/thanks' => "orders#thanks"
     get 'orders' => "orders#index"
     post 'orders' => "orders#create"
-    get 'orders/:id' => "orders#show"
+    get 'orders/:id' => "orders#show", as: "order"
 
     resources :cart_items do
       collection do

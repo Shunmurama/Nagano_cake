@@ -1,10 +1,9 @@
-<div class="field">
- <div class="container">
+<div class="container">
   <h1>マイページ</h1>
 
  <div class="row">
-  <div class="col-sm-1 ">
-   登録情報
+  <div class="col-sm-2 ">
+   <h4>登録情報</h4>
   </div>
   <div class="col">
    <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success" %>
@@ -42,6 +41,12 @@
       </tbody>
     </table>
 
+  <div class="col-sm-2 mb-4 row">
+   <h4>注文履歴</h4>
+   <div class="form-group ml-4">
+        <%= link_to '情報入力に進む',orders_path, class: "btn btn-primary" %>
+    </div>
+
+  </div>
 
  </div>
-<div>

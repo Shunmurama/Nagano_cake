@@ -10,7 +10,6 @@
           <th>商品名</th>
           <th>税抜き価格</th>
           <th>ジャンル</th>
-          <th colspan="4"></th>
         </tr>
       </thead>
 
@@ -19,7 +18,7 @@
         <tr>
          <td><%= item.id %></td>
          <td><%= link_to item.name, admin_item_path(item.id) %></td>
-         <td><%= item.price %></td>
+         <td><%= item.price.to_s(:delimited) %></td>
          <td><%= item.genre_id %></td>
         </tr>
        <% end %>

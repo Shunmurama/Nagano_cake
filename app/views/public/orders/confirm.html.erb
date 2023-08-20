@@ -1,6 +1,7 @@
-<h2>注文情報確認</h2>
-
  <div class="container">
+
+    <div class="mt-4 ml-4 table-secondary col-sm-2 text-center"><h4>注文情報確認</h4></div>
+
   <div class="row">
 
    <div class="col">
@@ -20,9 +21,9 @@
        <tbody>
         <tr>
          <td><%= cart_item.item.name %></td>
-         <td><%= (cart_item.item.price*@tax).floor %></td>
+         <td><%= (cart_item.item.price*@tax).floor.to_s(:delimited) %></td>
          <td><%= cart_item.amount %></td>
-         <td><%= cart_item.subtotal %></td>
+         <td><%= cart_item.subtotal.to_s(:delimited) %></td>
         </tr>
        </tbody>
       <% end %>
@@ -34,16 +35,16 @@
        <tbody>
          <tr>
            <td>送料</td>
-           <td><%= @order.delivery_charge %></td>
+           <td><%= @order.delivery_charge.to_s(:delimited) %></td>
          </tr>
          <tr>
            <td>商品合計</td>
-           <td><%= @total %>
+           <td><%= @total.to_s(:delimited) %>
            </td>
          </tr>
          <tr>
            <td>請求金額</td>
-           <td><%= @order.delivery_charge + @total %></td>
+           <td><%= (@order.delivery_charge + @total).to_s(:delimited) %></td>
          </tr>
        </tbody>
      </table>

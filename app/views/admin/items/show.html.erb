@@ -39,7 +39,7 @@
       （税抜価格）
      </div>
      <div class="col">
-      <%= (@item.price*@tax).floor %>(<%= @item.price %>)円
+      <%= (@item.price*@tax).floor.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円
      </div>
     </div>
 
