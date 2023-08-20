@@ -1,4 +1,14 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="mt-4 ml-4">
+    <div class="col-sm-2 border border-2 text-center">ジャンル検索</div>
+      <div class="col-sm-2 border border-2">
+        <% @genres.each do |genre| %>
+         <%= genre.name %><br>
+        <% end %>
+      </div>
 
 
+  </div>
+
+
+</div>
