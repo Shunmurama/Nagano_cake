@@ -1,13 +1,14 @@
-<div class="field">
   <div class="container">
-    <div class="bg-secondary text-black">商品詳細</div>
+    <div class="mt-4 ml-3 table-secondary col-sm-2 text-center"><h3>商品詳細</h3></div>
 
-    <div class="img-thumbnail">
-     <%= image_tag @item.image, size: "200x300" %>
+   <div class="row mt-5">
+    <div class="text-center col-5">
+     <%= image_tag @item.image, size: "300x250" %>
     </div>
 
-    <div class="row">
-     <div class="col-sm-5">
+   <div class="mt-2 ml-4 col">
+    <div class="row mt-2">
+     <div class="col-sm-3">
       商品名
      </div>
      <div class="col">
@@ -15,8 +16,8 @@
      </div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-5">
+    <div class="row mt-3">
+     <div class="col-sm-3">
       商品説明
      </div>
      <div class="col">
@@ -24,8 +25,8 @@
      </div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-5">
+    <div class="row mt-3">
+     <div class="col-sm-3">
       ジャンル
      </div>
      <div class="col">
@@ -33,20 +34,22 @@
      </div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-5">
+    <div class="row mt-4">
+     <div class="col-sm-3">
       税込価格<br>
-      （税抜価格）
+     （税抜価格）
      </div>
      <div class="col">
       <%= (@item.price*@tax).floor.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円
      </div>
     </div>
+   </div>
 
-     <div class="form-group">
+   </div>
+
+     <div class="form-group text-center mt-5">
       <%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-success" %>
      </div>
 
 
   </div>
-</div>

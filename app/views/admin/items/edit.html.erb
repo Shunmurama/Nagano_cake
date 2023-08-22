@@ -1,20 +1,19 @@
-<div class="field">
-   <div class="container">
-    <h2>商品編集</h2>
+  <div class="container">
+    <div class="mt-4 ml-3 table-secondary col-sm-2 text-center"><h4>商品編集</h4></div>
 
-<%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
+<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
 
-      <div class="row">
-       <div class="col-sm-3">
-        商品画像
-       </div>
-       <div class="col">
-        <%= f.file_field :image, accept: "image/*" %>
+       <div class="row mt-5">
+        <div class="col-4 text-right mr-4">
+         商品画像
+        </div>
+        <div class="col">
+         <%= f.file_field :image, accept: "image/*" %>
        </div>
       </div>
 
-      <div class="row">
-       <div class="col-sm-3">
+      <div class="row mt-3">
+       <div class="col-4 text-right mr-4">
         商品名
        </div>
        <div class="col">
@@ -22,8 +21,8 @@
        </div>
       </div>
 
-      <div class="row">
-       <div class="col-sm-3">
+      <div class="row mt-3">
+       <div class="col-4 text-right mr-4">
         商品説明
        </div>
        <div class="col">
@@ -31,8 +30,8 @@
        </div>
       </div>
 
-      <div class="row">
-       <div class="col-sm-3">
+      <div class="row mt-3">
+       <div class="col-4 text-right mr-4">
         ジャンル
        </div>
        <div class="col">
@@ -40,8 +39,8 @@
        </div>
       </div>
 
-      <div class="row">
-       <div class="col-sm-3">
+      <div class="row mt-3">
+       <div class="col-4 text-right mr-4">
         販売価格
        </div>
        <div class="col">
@@ -49,10 +48,9 @@
        </div>
       </div>
 
-      <div class="form-group">
-        <%= f.submit '新規登録', class: "btn btn-secondary" %>
+      <div class="form-group text-center mt-5">
+        <%= f.submit '変更を保存', class: "btn btn-success" %>
       </div>
 
     <% end %>
    </div>
-</div>

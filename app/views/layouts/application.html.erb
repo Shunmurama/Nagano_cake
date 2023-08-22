@@ -26,66 +26,66 @@
          <% if customer_signed_in? %>
           <li>
             <%= link_to customers_mypage_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-users"></i>マイページ
+             マイページ
             <% end %>
           </li>
           <li>
             <%= link_to items_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-book-open"></i>商品一覧
+             商品一覧
             <% end %>
           </li>
           <li>
             <%= link_to cart_items_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-sign-out-alt"></i>カート
+             カート
             <% end %>
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-dark" do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
+             ログアウト
             <% end %>
           </li>
 
          <% elsif admin_signed_in? %>
           <li>
-            <%= link_to items_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-book-open"></i>商品一覧
+            <%= link_to admin_items_path, class: "nav-link text-dark" do %>
+             商品一覧
             <% end %>
           </li>
           <li>
             <%= link_to admin_customers_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-book-open"></i>会員一覧
+             会員一覧
             <% end %>
           </li>
           <li>
-            <%= link_to items_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-book-open"></i>商品一覧
+            <%= link_to admin_path, class: "nav-link text-dark" do %>
+             注文履歴一覧
             <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
+             ログアウト
             <% end %>
           </li>
 
          <% else %>
           <li>
             <%= link_to about_path, class: "nav-link text-dark" do %>
-            <i class="fas fa-home"></i>About
+             About
             <% end %>
           </li>
           <li>
             <%= link_to items_path, class: "nav-link text-dark" do %>
-              <i class="fas fa-link"></i>商品一覧
+             商品一覧
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_registration_path, class: "nav-link text-dark" do %>
-              <i class="fas fa-user-plus"></i> 新規登録
+             新規登録
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_session_path, class: "nav-link text-dark" do %>
-              <i class="fas fa-sign-in-alt"></i>ログイン
+             ログイン
             <% end %>
           </li>
         <% end %>

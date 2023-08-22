@@ -1,13 +1,13 @@
 <div class="container">
- <div class="col-sm-2 mt-4 ml-3 text-center bg-secondary bg-gradient">ログイン</div>
-  <div class="col-sm-3 mt-4 ml-4 text-center bg-secondary bg-gradient">会員の方はこちらからログイン</div>
+ <div class="col-sm-2 mt-4 ml-3 text-center table-secondary">ログイン</div>
+  <div class="col-sm-3 mt-4 ml-4 text-center table-secondary">会員の方はこちらからログイン</div>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <div class="row mt-3">
     <div class="ml-5 col-sm-2">
-    <%= f.label :メールアドレス %>
+     <%= f.label :メールアドレス %>
     </div>
     <div class="ml-2 col">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
 <% end %>
 
 
- <div class="col-sm-3 mt-4 ml-3 text-center bg-secondary bg-gradient">会員登録がお済みでない方</div>
+ <div class="col-sm-3 mt-4 ml-3 text-center table-secondary">会員登録がお済みでない方</div>
 
 <div class="row mt-3">
  <div><%= render "public/shared/links" %></div>

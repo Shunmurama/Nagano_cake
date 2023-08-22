@@ -1,23 +1,31 @@
 <div class="container-fluid">
 
-<h2>管理者ログイン</h2>
+   <div class="col-sm-2 mt-4 ml-3 text-center table-secondary">管理者ログイン</div>
 
-<%= form_with model: @admin, url: admin_session_path do |f| %>
-  <table>
-    <tr>
-      <th><%= f.label :メールアドレス %></th>
-      <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-    </tr>
-    <tr>
-      <th><%= f.label :パスワード %></th>
-      <th><%= f.password_field :password, autocomplete: "current-password" %></th>
-    </tr>
-  </table>
-  <%#　レイアウト途中、ボタン変更済み、テーブルで設定すれば、
-      ワイヤーフレーム通りになると思って記述している。 %>
+  <%= form_with model: @admin, url: admin_session_path do |f| %>
+    <div class="row mt-3">
+      <div class="ml-5 col-sm-2">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="ml-2 col">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="ml-5 col-sm-2">
+        <%= f.label :パスワード %>
+      </div>
+      <div class="ml-sm-4">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+
+    <%#　レイアウト途中、ボタン変更済み、テーブルで設定すれば、
+        ワイヤーフレーム通りになると思って記述している。 %>
 
 
-  <div class="actions">
+  <div class="text-center mt-4">
     <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>

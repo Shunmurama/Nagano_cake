@@ -1,10 +1,15 @@
-<div class="field">
- <div class="container">
+<div class="container">
 
-   <div class="bg-secondary text-black">商品一覧</div>
+   <div class="mt-4 ml-3 table-secondary col-sm-2 text-center"><h3>商品一覧</h3></div>
 
-    <table class='table table-hover table-inverse'>
-      <thead class="bg-secondary text-black">
+    <div class="text-right mr-5">
+     <%= link_to new_admin_item_path do %>
+       <i class="fa-solid fa-plus fa-beat fa-xl" style="color: #000000;"></i>
+     <% end %>
+    </div>
+
+    <table class='table mt-5'>
+      <thead class="table-secondary">
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -27,6 +32,6 @@
 
 <%= paginate @items %>
 
- </div>
+
 </div>
 
