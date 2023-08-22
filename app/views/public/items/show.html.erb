@@ -2,36 +2,40 @@
 
 
   <div class="row mt-5 center-block">
-    <div class="img-thumbnail">
-     <%= image_tag @item.get_image(300,300) %>
+    <div class="col text-right">
+     <%= image_tag @item.image, size:"250x200" %>
     </div>
 
-   <div class="inline">
+   <div class="inline col ml-5">
     <div class="row">
-     <h4 class="col-sm-7">
+     <h3 class="col-sm-7">
       <%= @item.name %>
-     </h4>
+     </h3>
     </div>
 
     <div class="row">
-     <div class="col-sm-7">
-      <%= @item.introduction %>
+     <div class="col-sm-7 mt-3">
+      <h5><%= @item.introduction %></h5>
      </div>
     </div>
 
     <div class="row">
-     <div class="col-sm-7">
-      <%= (@item.price*1.1).floor.to_s(:delimited) %>（税込）
+     <div class="col-sm-7 mt-5">
+      <h4>¥<%= (@item.price*1.1).floor.to_s(:delimited) %>（税込）</h4>
      </div>
     </div>
 
     <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-    <div><%= f.label :quantity, "個数選択" %>
+   <div class="row">
+    <div class="mt-5">
+         <%= f.label :quantity, "個数選択" %>
          <%= f.select :amount, *[1..10] %>
     </div>
-    <div><%= f.hidden_field :item_id, :value => @item.id %>
+    <div class="mt-5 ml-5">
+         <%= f.hidden_field :item_id, :value => @item.id %>
          <%= f.submit 'カートに入れる' ,class: "btn btn-success" %>
     </div>
+   </div>
     <% end %>
    </div>
   </div>
