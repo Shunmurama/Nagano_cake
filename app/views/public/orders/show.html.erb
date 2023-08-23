@@ -11,7 +11,7 @@
           </tr>
           <tr>
            <td class="table-secondary">配送先</td>
-           <td><%= @order.postal_code %><br>
+           <td>〒<%= @order.postal_code %><br>
                <%= @order.address %><br>
                <%= @order.name %>
            </td>
@@ -45,7 +45,7 @@
    </div>
   </div>
 
-  <div class="col">
+  <div class="col mt-5">
    <h5>注文内容</h5>
     <table class="table table-bordered">
       <thead class="table-secondary">

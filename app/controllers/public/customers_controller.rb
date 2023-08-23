@@ -20,9 +20,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+    
   end
 
   def unsubscribe
+    
   end
 
   private
