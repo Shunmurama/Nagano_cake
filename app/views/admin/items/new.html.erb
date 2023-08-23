@@ -16,8 +16,8 @@
        <div class="col-4 text-right mr-4">
         商品名
        </div>
-       <div class="col">
-        <%= f.text_field :name %>
+       <div class="col form-group ">
+        <%= f.text_field :name, class: "hogehoge", size: "30x1" %>
        </div>
       </div>
 
@@ -26,7 +26,7 @@
         商品説明
        </div>
        <div class="col">
-        <%= f.text_area :introduction %>
+        <%= f.text_area :introduction, class: "hogehoge", size: "30x5" %>
        </div>
       </div>
 
@@ -44,7 +44,7 @@
         販売価格
        </div>
        <div class="col">
-        <%= f.text_field :price %>円
+        <%= f.text_field :price, class: "hogehoge", size: "30x1" %>円
        </div>
       </div>
 

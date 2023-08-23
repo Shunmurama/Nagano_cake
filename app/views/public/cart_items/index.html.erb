@@ -1,6 +1,6 @@
   <div class="container">
    <div class="row mb-2">
-    <div class="mt-3 text-center active">ショッピングカート</div>
+    <div class="mt-3 text-center table-secondary">ショッピングカート</div>
 
     <div class="mt-3 ml-auto">
         <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete,class: "btn btn-danger btn-sm" %>
@@ -15,7 +15,6 @@
           <th>数量</th>
           <th>小計</th>
           <th></th>
-          <th colspan="5"></th>
         </tr>
       </thead>
 
@@ -31,9 +30,9 @@
              <% end %>
          </td>
          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
-         <td>
+         <td class="text-center">
              <% if cart_item.customer == current_customer %>
-             <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete %>
+             <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete,class: "btn btn-danger btn-sm" %>
              <% end %>
         </td>
         </tr>
@@ -42,22 +41,22 @@
     </table>
 
    <div class="row mt-4">
-      <div class="form-group">
+      <div class="form-group col-3 text-right">
           <%= link_to '買い物を続ける',items_path, class: "btn btn-primary" %>
       </div>
 
-     <div class="row ml-auto">
-          <div class="active border">合計金額</div>
-          <div class="border">
+     <div class="row col d-flex justify-content-end pr-4">
+          <div class="border col-2 table-secondary ">合計金額</div>
+          <div class="border col-2">
                <% @cart_items.each do |cart_item| %>
-               <% @total = (@total + cart_item.subtotal) %>
+               <% @total = (@total+cart_item.subtotal) %>
                <% end %>
                <%= @total.to_s(:delimited) %>
           </div>
      </div>
    </div>
 
-    <div class="form-group">
+    <div class="form-group text-center">
         <%= link_to '情報入力に進む',orders_new_path, class: "btn btn-success" %>
     </div>
 

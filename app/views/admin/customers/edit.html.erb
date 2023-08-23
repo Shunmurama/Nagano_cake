@@ -1,86 +1,50 @@
-<div class="field">
-   <div class="container">
-      <div class="col d-inline h2 bg-secondary text-black center-block"><%= @customer.full_name %>さんの会員情報編集</div>
+  <div class="container">
+      <div class="mt-4 ml-3 table-secondary col-sm-5 text-center"><h3><%= @customer.full_name %>さんの会員情報編集</h3></div>
 
 <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 
-    <div class="row">
-     <div class="col-sm-3">
-      会員ID
-     </div>
-     <div class="col-sm-3">
-      <%= @customer.id %>
-     </div>
+    <div class="mt-5 ml-4 row">
+      <div class="col-sm-3">会員ID</div>
+      <div><%= @customer.id %></div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-3">
-      氏名
-     </div>
-     <div class="col-sm-3">
-      <%= f.text_field :last_name %>
-     </div>
-     <div class="col-sm-5">
-      <%= f.text_field :first_name %>
-     </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">氏名</div>
+      <div><%= f.text_field :last_name %></div>
+      <div class="ml-4"><%= f.text_field :first_name %></div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-3">
-      フリガナ
-     </div>
-     <div class="col-sm-3">
-      <%= f.text_field :last_name_kana %>
-     </div>
-     <div class="col-sm-5">
-      <%= f.text_field :first_name_kana %>
-     </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">フリガナ</div>
+      <div><%= f.text_field :last_name_kana %></div>
+      <div class="ml-4"><%= f.text_field :first_name_kana %></div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-3">
-      郵便番号
-     </div>
-     <div class="col-sm-3">
-      <%= f.text_field :postal_code %>
-     </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">郵便番号</div>
+      <div><%= f.text_field :postal_code %></div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-3">
-      住所
-     </div>
-     <div class="col-sm-8">
-      <%= f.text_area :address %>
-     </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">住所</div>
+      <div><%= f.text_area :address, class: "hogehoge", size: "50x1" %></div>
     </div>
 
-    <div class="row">
-     <div class="col-sm-3">
-      電話番号（ハイフンなし）
-     </div>
-     <div class="col-sm-3">
-      <%= f.text_field :telephone_number %>
-     </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">電話番号</div>
+      <div><%= f.text_field :telephone_number %></div>
     </div>
 
-     <div class="row">
-      <div class="col-sm-3">
-       メールアドレス
-      </div>
-      <div class="col-sm-3">
-       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+    <div class="mt-3 ml-4 row">
+      <div class="col-sm-3">メールアドレス</div>
+      <div><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
     </div>
 
-
-
-    <div class="actions col-sm-6">
+    <div class="col-sm-5 text-right mt-5">
     <%= f.submit "変更を保存", class: "btn btn-success" %>
     </div>
 
     <% end %>
 
   </div>
- </div>
 

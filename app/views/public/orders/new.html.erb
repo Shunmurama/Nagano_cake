@@ -1,31 +1,37 @@
 <div class="field">
   <div class="container">
-    <div class="bg-secondary text-black">商品一覧</div>
+    <div class="mt-4 ml-3 table-secondary col-sm-2 text-center"><h4 class="font-weight-normal">注文情報入力</h4></div>
       <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
       <div class="row">
-        支払方法
+        <h6 class="font-weight-bold">支払方法</h6>
        <div class="col-sm-4">
+       <div>
         <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(0), checked: true %>
         <%= f.label :how_to_pay_method_credit_card, Order.how_to_pay_methods_i18n[:credit_card] %>
+       </div>
+       <div>
         <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(1) %>
         <%= f.label :how_to_pay_method_transfer, Order.how_to_pay_methods_i18n[:transfer] %>
+       </div>
        </div>
       </div>
 
 
 
     <div class="row">
-      お届け先
+      <h6 class="font-weight-bold">お届け先</h6>
       <div class="col-sm-5">
         <% if customer_signed_in? %>
           <% @customers.each do |customer| %>
-            <%= customer.postal_code %> <%= customer.address %> <%= customer.full_name %>
+            〒<%= customer.postal_code %>
+              <%= customer.address %><br>
+              <%= customer.full_name %>
           <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-5 text-center">
         <%= f.hidden_field :customer_id, :value => @customer.id %>
         <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
     </div>

@@ -5,14 +5,13 @@
   <div class="row">
 
    <div class="col">
-    <table class='table table-hover table-inverse'>
+    <table class='table table-bordered border-dark'>
       <thead class="table-secondary">
         <tr>
           <th>商品名</th>
           <th>単価（税込）</th>
           <th>数量</th>
           <th>小計</th>
-          <th colspan="4"></th>
         </tr>
       </thead>
 
@@ -31,19 +30,19 @@
    </div>
 
    <div class="col table ml-4">
-     <table>
+     <table class="table-bordered border-dark">
        <tbody>
          <tr>
-           <td>送料</td>
+           <td class="table-secondary">送料</td>
            <td><%= @order.delivery_charge.to_s(:delimited) %></td>
          </tr>
          <tr>
-           <td>商品合計</td>
+           <td class="table-secondary">商品合計</td>
            <td><%= @total.to_s(:delimited) %>
            </td>
          </tr>
          <tr>
-           <td>請求金額</td>
+           <td class="table-secondary">請求金額</td>
            <td><%= (@order.delivery_charge + @total).to_s(:delimited) %></td>
          </tr>
        </tbody>
@@ -53,14 +52,14 @@
   </div>
 
     <div class="row">
-      <h4>支払方法</h4>
+      <h5 class="font-weight-bold">支払方法</h5>
       <div class="col-sm-5">
             <%= @order.how_to_pay_method_i18n %>
       </div>
     </div>
 
     <div class="row">
-      <h4>お届け先</h4>
+      <h5 class="font-weight-bold">お届け先</h5>
       <div class="col-sm-5">
         <% if customer_signed_in? %>
           <% @customers.each do |customer| %>
@@ -70,7 +69,7 @@
       </div>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mt-5">
       <%= form_with model: @order, url: orders_path, method: :post do |f| %>
        <%= f.hidden_field :customer_id %>
        <%= f.hidden_field :address %>
