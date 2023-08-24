@@ -3,7 +3,11 @@
 
     <div class="mt-3 row">
       <div class="col-sm-2"><p class="font-weight-bold">購入者</p></div>
-      <div><%= @order.name %></div>
+      <div>
+           <%= link_to admin_customer_path(@customer) do %>
+           <%= @order.name %>
+           <% end %>
+      </div>
     </div>
 
     <div class="mt-1 row">

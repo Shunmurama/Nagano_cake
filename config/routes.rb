@@ -5,8 +5,8 @@ scope module: :public do
     get 'customers/mypage' => "customers#show"
     get 'customers/information/edit' => "customers#edit"
     patch 'customers/information' => "customers#update"
-    get 'customers/information/withdraw' => "customers#withdraw"
-    patch 'customers/information' => "customers#unsubscribe"
+    get 'customers/information/withdraw' => "customers#withdraw", as: "withdraw"
+    patch 'customers/information' => "customers#unsubscribe", as: "unsubscribe"
 
     resources :items
 
@@ -32,7 +32,8 @@ end
 namespace :admin do
   resources :items
   resources :genres, only: [:index,:create,:edit,:update ]
-  resources :customers
+  resources :customers, only: [:index,:show, :edit]
+   patch 'customers/information' => "customers#update", as: "edit"
   resources :orders
   get '/' => "homes#top"
 end
