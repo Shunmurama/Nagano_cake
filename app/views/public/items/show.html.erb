@@ -19,6 +19,15 @@
      </div>
     </div>
 
+    <div class="row mt-3">
+     <div class="col-sm-3">
+      ジャンル
+     </div>
+     <div class="col">
+      <%= @item.genre.name %>
+     </div>
+    </div>
+
     <div class="row">
      <div class="col-sm-7 mt-5">
       <h4>¥<%= (@item.price*1.1).floor.to_s(:delimited) %>（税込）</h4>

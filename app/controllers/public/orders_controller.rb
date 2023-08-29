@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    @customers = Customer.all
     @customer = current_customer
   end
 
@@ -21,7 +20,7 @@ class Public::OrdersController < ApplicationController
      end
 
 
-    @customers = Customer.all
+    @customer = current_customer
 
     @tax = 1.1
 
@@ -60,10 +59,19 @@ class Public::OrdersController < ApplicationController
       @orders = Order.all
       @order = Order.find(params[:id])
       @order_items = @order.order_items
+
+      @total = 0
+
+       @order_items.each do |order_item|
+        @total = (@total + order_item.subtotal)
+       @order.total_payment = @order.delivery_charge + @total
+     end
+
+
   end
 
   private
   def order_params
-    params.require(:order).permit(:customer_id, :address, :postal_code, :name, :delivery_charge, :total_payment, :how_to_pay_method)
+    params.require(:order).permit(:customer_id, :address, :postal_code, :name, :delivery_charge, :total_payment, :how_to_pay)
   end
 end

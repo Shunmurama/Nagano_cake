@@ -18,7 +18,7 @@
           </tr>
           <tr>
            <td class="table-secondary">支払方法</td>
-           <td><%= @order.how_to_pay_method_i18n %></td>
+           <td><%= @order.how_to_pay_i18n %></td>
           </tr>
          </tbody>
       </table>
@@ -30,7 +30,7 @@
        <tbody>
          <tr>
            <td class="table-secondary">商品合計</td>
-           <td><%= @order.total_payment.to_s(:delimited) %></td>
+           <td><%= @total.to_s(:delimited) %></td>
           </tr>
          <tr>
            <td class="table-secondary">配送料</td>

@@ -6,12 +6,12 @@
         <h6 class="font-weight-bold">支払方法</h6>
        <div class="col-sm-4">
        <div>
-        <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(0), checked: true %>
-        <%= f.label :how_to_pay_method_credit_card, Order.how_to_pay_methods_i18n[:credit_card] %>
+        <%= f.radio_button :how_to_pay, Order.how_to_pays.key(0), checked: true %>
+        <%= f.label :how_to_pay_credit_card, Order.how_to_pays_i18n[:credit_card] %>
        </div>
        <div>
-        <%= f.radio_button :how_to_pay_method, Order.how_to_pay_methods.key(1) %>
-        <%= f.label :how_to_pay_method_transfer, Order.how_to_pay_methods_i18n[:transfer] %>
+        <%= f.radio_button :how_to_pay, Order.how_to_pays.key(1) %>
+        <%= f.label :how_to_pay_transfer, Order.how_to_pays_i18n[:transfer] %>
        </div>
        </div>
       </div>
@@ -22,11 +22,9 @@
       <h6 class="font-weight-bold">お届け先</h6>
       <div class="col-sm-5">
         <% if customer_signed_in? %>
-          <% @customers.each do |customer| %>
-            〒<%= customer.postal_code %>
-              <%= customer.address %><br>
-              <%= customer.full_name %>
-          <% end %>
+            〒<%= @customer.postal_code %>
+              <%= @customer.address %><br>
+              <%= @customer.full_name %>
         <% end %>
       </div>
     </div>

@@ -1,3 +1,9 @@
+<% if @genre.errors.any? %>
+   <div class="error-box">
+    <h4 class="error-text ml-3">未入力の項目があります。</h4>
+   </div>
+<% end %>
+
 <div class="container">
 
  <div class="col-sm-3 mt-4 ml-3 text-center table-secondary"><h5>ジャンル機能追加</h5></div>
@@ -30,7 +36,7 @@
       </thead>
 
       <tbody>
-       <% @genres.each do |genre|%>
+       <% @genres.each do |genre| %>
         <tr>
          <td><%= genre.name %></td>
          <td ><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %></td>

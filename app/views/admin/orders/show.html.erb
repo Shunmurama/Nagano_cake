@@ -26,7 +26,7 @@
 
     <div class="mt-1 row">
       <div class="col-sm-2"><p class="font-weight-bold">支払方法</p></div>
-      <div><%= @order.how_to_pay_method_i18n %></div>
+      <div><%= @order.how_to_pay_i18n %></div>
     </div>
 
  <div class="row mt-5">
@@ -61,7 +61,7 @@
    <div class="col">
     <div class="row d-flex justify-content-end">
       <div class="font-weight-bold text-right col text-right">商品合計</div>
-      <div class="text-right col-sm-3"><%= @order.total_payment.to_s(:delimited) %>円</div>
+      <div class="text-right col-sm-3"><%= @total.to_s(:delimited) %>円</div>
     </div>
     <div class="row d-flex justify-content-end">
       <div class="font-weight-bold text-right col text-right">送料</div>

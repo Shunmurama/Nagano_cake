@@ -1,4 +1,10 @@
-   <div class="container">
+ <% if @item.errors.any? %>
+   <div class="error-box">
+    <h4 class="error-text ml-3">未入力の項目があります。</h4>
+   </div>
+<% end %>
+
+　<div class="container">
     <div class="mt-4 ml-3 table-secondary col-sm-2 text-center"><h4>商品新規登録</h4></div>
 
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>

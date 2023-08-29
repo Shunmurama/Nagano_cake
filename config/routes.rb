@@ -6,7 +6,7 @@ scope module: :public do
     get 'customers/information/edit' => "customers#edit"
     patch 'customers/information' => "customers#update"
     get 'customers/information/withdraw' => "customers#withdraw", as: "withdraw"
-    patch 'customers/information' => "customers#unsubscribe", as: "unsubscribe"
+    patch 'customers/information/unsubscribe' => "customers#unsubscribe", as: "unsubscribe"
 
     resources :items
 
@@ -33,7 +33,7 @@ namespace :admin do
   resources :items
   resources :genres, only: [:index,:create,:edit,:update ]
   resources :customers, only: [:index,:show, :edit]
-   patch 'customers/information' => "customers#update", as: "edit"
+   patch 'customers/information/:id' => "customers#update", as: "edit"
   resources :orders
   get '/' => "homes#top"
 end

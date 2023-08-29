@@ -10,15 +10,22 @@
               <th class="w-auto">会員ID</th>
               <th class="w-auto">氏名</th>
               <th class="w-auto">メールアドレス</th>
+              <th class="w-auto">退会ステータス</th>
             </tr>
           </thead>
 
           <tbody>
            <% @customers.each do |customer|%>
             <tr>
-             <td scope="w-auto"><%= customer.id %></td>
-             <td scope="w-auto"><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
-             <td scope="w-auto"><%= customer.email %></td>
+             <td class="w-auto"><%= customer.id %></td>
+             <td class="w-auto"><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+             <td class="w-auto"><%= customer.email %></td>
+            <% if customer.is_deleted == false %>
+             <td class="w-auto text-success">有効</td>
+            <% end %>
+            <% if customer.is_deleted == true %>
+             <td class="w-auto text-muted">退会</td>
+            <% end %>
             </tr>
            <% end %>
           </tbody>

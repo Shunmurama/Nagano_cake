@@ -42,22 +42,24 @@
 
    <div class="row mt-4">
       <div class="form-group col-3 text-right">
-          <%= link_to '買い物を続ける',items_path, class: "btn btn-primary" %>
+          <%= link_to '買い物を続ける',root_path, class: "btn btn-primary" %>
       </div>
 
      <div class="row col d-flex justify-content-end pr-4">
           <div class="border col-2 table-secondary ">合計金額</div>
           <div class="border col-2">
-               <% @cart_items.each do |cart_item| %>
-               <% @total = (@total+cart_item.subtotal) %>
-               <% end %>
-               <%= @total.to_s(:delimited) %>
+            <% @cart_items.each do |cart_item| %>
+             <% @total = (@total + cart_item.subtotal) %>
+            <% end %>
+            <%= @total.to_s(:delimited) %>
           </div>
      </div>
    </div>
 
     <div class="form-group text-center">
+      <% if @cart_items.any? %>
         <%= link_to '情報入力に進む',orders_new_path, class: "btn btn-success" %>
+      <% end %>
     </div>
 
  </div>

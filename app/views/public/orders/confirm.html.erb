@@ -53,7 +53,7 @@
     <div class="row">
       <h5 class="font-weight-bold">支払方法</h5>
       <div class="col-sm-5">
-            <%= @order.how_to_pay_method_i18n %>
+            <%= @order.how_to_pay_i18n %>
       </div>
     </div>
 
@@ -61,11 +61,9 @@
       <h5 class="font-weight-bold">お届け先</h5>
       <div class="col-sm-5">
         <% if customer_signed_in? %>
-          <% @customers.each do |customer| %>
-            〒<%= customer.postal_code %>
-              <%= customer.address %><br>
-              <%= customer.full_name %>
-          <% end %>
+            〒<%= @customer.postal_code %>
+              <%= @customer.address %><br>
+              <%= @customer.full_name %>
         <% end %>
       </div>
     </div>

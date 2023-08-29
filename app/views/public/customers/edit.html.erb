@@ -1,7 +1,13 @@
+<% if @customer.errors.any? %>
+   <div class="error-box">
+    <h4 class="error-text ml-3">未入力の項目があります。</h4>
+   </div>
+  <% end %>
+
 <div class="container">
       <div class="mt-4 ml-3 table-secondary col-sm-5 text-center"><h3>会員情報編集</h3></div>
 
-<%= form_with model: @customer, url: customers_information_path do |f| %>
+<%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
 
     <div class="mt-5 ml-4 row">
       <div class="col-sm-3">氏名</div>
@@ -50,4 +56,3 @@
 
   </div>
  </div>
-
