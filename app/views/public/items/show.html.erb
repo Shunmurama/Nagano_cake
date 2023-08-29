@@ -41,8 +41,13 @@
          <%= f.select :amount, *[1..10] %>
     </div>
     <div class="mt-5 ml-5">
+       <% if customer_signed_in? %>
          <%= f.hidden_field :item_id, :value => @item.id %>
          <%= f.submit 'カートに入れる' ,class: "btn btn-success" %>
+       <% else %>
+         <%= link_to 'カートに入れる' , new_customer_session_path, class: "btn btn-success" %>
+       <% end %>
+
     </div>
    </div>
     <% end %>
